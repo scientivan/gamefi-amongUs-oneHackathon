@@ -118,7 +118,7 @@ export function VotingPanel({ onChainGameId, voteTally }: VotingPanelProps) {
     }
 
     signAndExecute(
-      { transaction: resolvedTx },
+      { transaction: resolvedTx as any },
       {
         onSuccess: () => markSuccess(voteType),
         onError: (e) => setError(e.message?.slice(0, 80) ?? "Vote failed"),
