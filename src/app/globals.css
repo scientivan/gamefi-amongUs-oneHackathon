@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a1628;
+  --foreground: #e0e0e0;
+  --accent-gold: #ffd700;
+  --accent-mint: #88d8b0;
+  --accent-coral: #ff6b6b;
+  --accent-blue: #a8d8ea;
+  --accent-pink: #fcbad3;
+  --accent-green: #b8de6f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--accent-gold);
+  --color-mint: var(--accent-mint);
+  --color-coral: var(--accent-coral);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-pixel);
+}
+
+body {
+  background: linear-gradient(180deg, #0a1628 0%, #0d2137 40%, #0f3460 80%, #1a4a6e 100%);
+  color: var(--foreground);
+  font-family: var(--font-pixel), 'Press Start 2P', monospace;
+  min-height: 100vh;
+  image-rendering: pixelated;
+}
+
+/* 8-bit pixel text utilities */
+.font-pixel {
+  font-family: var(--font-pixel), 'Press Start 2P', monospace;
+}
+
+.font-body {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+}
+
+/* Retro text glow effect */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5), 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.text-glow-mint {
+  text-shadow: 0 0 10px rgba(136, 216, 176, 0.5), 0 0 20px rgba(136, 216, 176, 0.3);
+}
+
+/* Retro glass panel */
+.retro-panel {
+  background: rgba(13, 33, 55, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Pixel border effect */
+.pixel-border {
+  border: 2px solid var(--accent-gold);
+  box-shadow:
+    4px 4px 0 0 rgba(255, 215, 0, 0.3),
+    -1px -1px 0 0 rgba(255, 215, 0, 0.1);
+}
+
+/* Scanline overlay effect */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+}
+
+/* Shimmer animation for titles */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #ffd700, #ff6b6b, #88d8b0, #ffd700);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Pulse glow for interactive elements */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.2); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Emergency meeting image: scale-in burst → hold → fade out */
+@keyframes meeting-burst {
+  0%   { opacity: 0;   transform: scale(0.6); }
+  25%  { opacity: 1;   transform: scale(1.05); }
+  35%  { opacity: 1;   transform: scale(1); }
+  75%  { opacity: 1;   transform: scale(1); }
+  100% { opacity: 0;   transform: scale(1.08); }
+}
+.animate-meeting-burst {
+  animation: meeting-burst 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Red flash on the overlay background when meeting starts */
+@keyframes red-flash {
+  0%   { background-color: rgba(185, 28, 28, 0.7); }
+  40%  { background-color: rgba(30, 27, 75, 0.95); }
+  100% { background-color: rgba(30, 27, 75, 0.95); }
+}
+.animate-red-flash {
+  animation: red-flash 1s ease-out forwards;
+}
