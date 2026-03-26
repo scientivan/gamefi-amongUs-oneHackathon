@@ -8,6 +8,7 @@ import { ConnectButton, useCurrentAccount } from "@mysten/dapp-kit";
 export function Navbar() {
   const pathname = usePathname();
   const account = useCurrentAccount();
+  const gitbookUrl = "https://among-ones.gitbook.io/among-ones";
 
   const isWrongNetwork =
     account != null &&
@@ -45,6 +46,21 @@ export function Navbar() {
     </>
   );
 
+  const renderDocsButton = (mobile: boolean) => (
+    <a
+      href={gitbookUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`
+                        ${mobile ? "text-center" : ""}
+                        px-2 sm:px-3 py-1.5 rounded-sm text-[7px] sm:text-[8px] font-pixel uppercase tracking-wider transition-all
+                        text-[#88d8b0]/80 hover:text-[#88d8b0] hover:bg-[#88d8b0]/10 border border-[#88d8b0]/20
+                    `}
+    >
+      Docs
+    </a>
+  );
+
   const shortAddress = (addr: string) =>
     `${addr.slice(0, 6)}...${addr.slice(-4)}`;
 
@@ -63,18 +79,19 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="/amongnads_logo_tg.png"
-              alt="Among Nads"
+              src="/amongones_logo_tg.webp"
+              alt="Among Ones"
               className="w-8 h-8 rounded-full"
             />
             <span className="text-base font-pixel text-shimmer tracking-tight hidden sm:inline">
-              AMONG NADS
+              AMONG ONES
             </span>
           </Link>
 
           {/* Desktop Links */}
           <div className="hidden sm:flex items-center gap-1">
             {renderLinks(false)}
+            {renderDocsButton(false)}
           </div>
 
           {/* Mobile Connect Button */}
@@ -96,6 +113,7 @@ export function Navbar() {
         {/* Mobile Links Row */}
         <div className="flex sm:hidden items-center justify-between gap-1 w-full">
           {renderLinks(true)}
+          {renderDocsButton(true)}
         </div>
 
         {/* Desktop Connect Button */}
