@@ -1,0 +1,11 @@
+{
+  "name": "among-nads-deploy",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "deploy": "node deploy.mjs"
+  },
+  "dependencies": {
+    "@onelabs/sui": "latest"
+  }
+}
