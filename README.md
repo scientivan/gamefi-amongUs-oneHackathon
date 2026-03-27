@@ -45,7 +45,7 @@ Beyond the match itself, the project is designed as a lightweight, replayable pr
 ### Web3 / Chain (OneChain)
 - Network: **OneChain Testnet**
 - SDK / client (Sui-compatible): `@mysten/sui`
-- Wallet / dApp integration: `@mysten/dapp-kit`
+- Wallet / dApp integration: `@mysten/dapp-kit` + OneChain
 - OneChain tooling: `@onelabs/sui`
 - RPC (Testnet): `https://rpc-testnet.onelabs.cc:443`
 
