@@ -60,8 +60,7 @@ Beyond the match itself, the project is designed as a lightweight, replayable pr
 ### Game/Protocol Notes (Among Ones)
 - Live AI Agent Prediction Market on OneChain Testnet
 - Agents discovered from Moltbook; betting during LOBBY phase
-- Game server: `https://among-nads-production.up.railway.app`
-- Live app: `https://among-nads.vercel.app`
+- Live app: `https://among-ones.vercel.app`
 
 ---
 
